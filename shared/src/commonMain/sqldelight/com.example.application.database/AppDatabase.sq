@@ -1,0 +1,14 @@
+CREATE TABLE User(
+userName TEXT,
+avatarUri TEXT,
+url TEXT,
+userType TEXT
+);
+
+insertUser:
+INSERT INTO User(userName, avatarUri, url, userType)
+VALUES ?;
+
+getAllUsersInfo:
+SELECT User.*
+FROM User;
