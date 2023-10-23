@@ -1,6 +1,5 @@
 package com.example.application.database
 
-import com.example.application.entity.GithubUser
 import com.example.application.network.ExternalDatasource
 import comexampleapplicationdatabase.User
 
@@ -14,4 +13,6 @@ class AppRepository(
         }
         return internalStorage.getAllUsers().executeAsList()
     }
+
+    fun getUser(id: Long) = internalStorage.getUser(id = id).executeAsOne()
 }

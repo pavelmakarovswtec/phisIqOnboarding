@@ -20,24 +20,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewModelScope
-import com.example.application.entity.GithubUser
+import androidx.navigation.NavHostController
 import com.example.githubusersloader.android.MainViewModel
 import com.example.githubusersloader.android.State
 import comexampleapplicationdatabase.User
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MainFragment(
     viewModel: MainViewModel = koinViewModel(),
-    onNavigateToDetails: () -> Unit
+    navigationController: NavHostController
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -47,9 +43,9 @@ fun MainFragment(
             is State.Loading -> Loader()
             is State.Loaded -> MyComposeList(
                 tasks = state.data,
-                listener = onNavigateToDetails
+                navigationController = navigationController
             )
-            else -> {}
+            is State.Error-> ErrorView(errorText = state.message)
         }
     }
 }
@@ -68,27 +64,39 @@ fun Loader() {
 @Composable
 fun MyComposeList(
     tasks: List<User>,
-    listener: () -> Unit
+    navigationController: NavHostController
 ) {
     LazyColumn(
         modifier = Modifier.padding(Dp(10f), Dp(5f))
     ) {
         items(tasks) { task ->
-            ListItem(task = task, listener = listener)
+            ListItem(task = task, navigationController = navigationController)
             Spacer(modifier = Modifier.height(5.dp))
         }
     }
 }
 
 @Composable
-fun ListItem(task: User, listener: () -> Unit) {
+fun ListItem(
+    task: User,
+    navigationController: NavHostController
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(10.dp))
             .padding(10.dp)
-            .clickable(onClick = listener)
+            .clickable(onClick = {navigationController.navigate("details/${task.id}")})
     ) {
         Text(text = task.userName?: "", fontStyle = FontStyle.Normal, fontWeight = FontWeight.Bold)
     }
+}
+
+@Composable
+fun ErrorView(errorText: String) = Column(
+    horizontalAlignment = Alignment.CenterHorizontally,
+    verticalArrangement = Arrangement.Center,
+    modifier = Modifier.fillMaxWidth()
+) {
+    Text(text = errorText, fontStyle = FontStyle.Normal, fontWeight = FontWeight.Bold)
 }
