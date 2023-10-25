@@ -1,4 +1,4 @@
-package com.example.githubusersloader.android
+package com.example.githubusersloader.android.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

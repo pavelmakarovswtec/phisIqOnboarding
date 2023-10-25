@@ -1,8 +1,9 @@
-package com.example.githubusersloader.android
+package com.example.githubusersloader.android.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.application.database.AppRepository
+import com.example.githubusersloader.android.State
 import comexampleapplicationdatabase.User
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
