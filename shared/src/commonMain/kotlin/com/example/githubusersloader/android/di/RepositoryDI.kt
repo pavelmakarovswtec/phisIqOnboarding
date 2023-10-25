@@ -11,7 +11,7 @@ import org.koin.dsl.module
 val repositoryModule = module {
     single<SqlDriver> { DatabaseDriverFactory(context = get()).createDriver() }
     single<AppDatabase> { AppDatabase(driver = get()) }
-    single<InternalStorage>{ InternalStorage(database = get()) }
+    single<InternalStorage> { InternalStorage(database = get()) }
     single<ExternalDatasource> { ExternalDatasource() }
     single<AppRepository> { AppRepository(internalStorage = get(), externalDatasource = get()) }
 }

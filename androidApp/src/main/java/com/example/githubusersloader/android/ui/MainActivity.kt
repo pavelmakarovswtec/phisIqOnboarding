@@ -1,4 +1,4 @@
-package com.example.githubusersloader.android
+package com.example.githubusersloader.android.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,8 +10,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.githubusersloader.android.ui.DetailsFragment
-import com.example.githubusersloader.android.ui.MainFragment
+import com.example.githubusersloader.android.NavigationArguments
+import com.example.githubusersloader.android.NavigationRoutes
+import com.example.githubusersloader.android.ui.fragments.DetailsFragment
+import com.example.githubusersloader.android.ui.fragments.MainFragment
 
 class MainActivity : ComponentActivity() {
 
