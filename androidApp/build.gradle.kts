@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     debugImplementation(libs.compose.ui.tooling)
-    implementation("io.coil-kt:coil:2.4.0")
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
     implementation(libs.androidx.navigation.compose)
 }

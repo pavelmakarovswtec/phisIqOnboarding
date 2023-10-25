@@ -1,5 +1,6 @@
 [versions]
 agp = "8.1.2"
+coil = "2.4.0"
 coroutinesVersion = "1.7.1"
 koinAndroid = "3.5.0"
 koinVersion = "3.4.0"
@@ -8,8 +9,9 @@ compose = "1.5.3"
 compose-compiler = "1.5.3"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
-ktlintGradle = "11.1.0"
+ktlint = "11.6.1"
 ktorVersion = "2.3.2"
+mockk = "1.9.3"
 navigationCompose = "2.7.4"
 sqlDelightVersion = "1.5.5"
 sqliteDriver = "2.0.0-rc01"
@@ -17,6 +19,8 @@ sqliteDriver = "2.0.0-rc01"
 [libraries]
 android-driver = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqlDelightVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 gradle-plugin = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqlDelightVersion" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroid" }
@@ -29,12 +33,12 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
-ktlint-gradle = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlintGradle" }
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 native-driver = { module = "com.squareup.sqldelight:native-driver", version.ref = "sqlDelightVersion" }
 runtime = { module = "com.squareup.sqldelight:runtime", version.ref = "sqlDelightVersion" }
 sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqliteDriver" }
@@ -47,4 +51,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+ktLint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 

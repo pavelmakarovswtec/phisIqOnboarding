@@ -1,7 +1,6 @@
 package com.example.githubusersloader.android
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
@@ -26,15 +25,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainNavigationHost(navigationController: NavHostController) {
-    NavHost(navController = navigationController, startDestination = "main") {
-        composable(route = "main") {
+    NavHost(navController = navigationController, startDestination = NavigationRoutes.MAIN_ROUTE) {
+        composable(route = NavigationRoutes.MAIN_ROUTE) {
             MainFragment(navigationController = navigationController)
         }
 
         composable(
-            route = "details/{userId}",
-            arguments = listOf(navArgument("userId") { type = NavType.LongType })) { backStackEntry->
-            DetailsFragment(userId = backStackEntry.arguments?.getLong("userId"))
+            route = NavigationRoutes.DETAILS_BY_ID_ROUTE,
+            arguments = listOf(navArgument(NavigationArguments.USER_ID) { type = NavType.LongType })
+        ) { backStackEntry ->
+            val arguments = requireNotNull(backStackEntry.arguments)
+            DetailsFragment(
+                userId = arguments.getLong(NavigationArguments.USER_ID)
+            )
         }
     }
 }
