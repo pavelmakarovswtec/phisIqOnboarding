@@ -1,7 +1,6 @@
 package com.example.githubusersloader.android
 
 import android.app.Application
-import androidx.compose.runtime.Composable
 import com.example.githubusersloader.android.di.appModule
 import com.example.githubusersloader.android.di.repositoryModule
 import org.koin.android.ext.koin.androidContext

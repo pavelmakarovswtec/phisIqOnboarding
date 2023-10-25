@@ -8,17 +8,20 @@ class InternalStorage(database: AppDatabase) {
 
     fun getAllUsers() = dbQuery.getAllUsersInfo()
 
+    fun getUser(id: Long) = dbQuery.getUserInfo(id = id)
+
     fun createUsers(users: List<GithubUser>) = dbQuery.transaction {
-        users.forEach {user->
+        users.forEach { user ->
             insertUser(user)
         }
     }
 
     private fun insertUser(user: GithubUser) = dbQuery.insertUser(
-       createUserInternalData(user)
+        createUserInternalData(user)
     )
 
     private fun createUserInternalData(user: GithubUser) = User(
+        id = 0,
         userName = user.loginName,
         avatarUri = user.avatar,
         url = user.url,

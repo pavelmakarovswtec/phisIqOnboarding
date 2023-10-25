@@ -1,4 +1,5 @@
 CREATE TABLE User(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
 userName TEXT,
 avatarUri TEXT,
 url TEXT,
@@ -12,3 +13,8 @@ VALUES ?;
 getAllUsersInfo:
 SELECT User.*
 FROM User;
+
+getUserInfo:
+SELECT User.*
+FROM User
+WHERE id = ?;
