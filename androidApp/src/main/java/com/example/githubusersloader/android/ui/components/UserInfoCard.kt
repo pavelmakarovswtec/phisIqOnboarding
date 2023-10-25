@@ -29,7 +29,7 @@ fun UserInfoCard(
         .padding(Resources.paddingMedium())
         .background(MaterialTheme.colorScheme.primary, shape = MaterialTheme.shapes.large)
         .padding(Resources.paddingMedium())
-        .clickable ( onClick = onClickAction ),
+        .clickable(onClick = onClickAction),
     verticalAlignment = Alignment.CenterVertically
 ) {
     AvatarImage(avatarUri = user.avatarUri)
@@ -40,7 +40,7 @@ fun UserInfoCard(
             fontWeight = FontWeight.Bold
         )
 
-        if(showFullInfo) {
+        if (showFullInfo) {
             Text(
                 text = user.userType ?: "",
                 fontStyle = FontStyle.Normal,

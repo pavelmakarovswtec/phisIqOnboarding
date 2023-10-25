@@ -29,5 +29,5 @@ fun UserInfo(
     user: User
 ) = UserInfoCard(
     user = user,
-    showFullInfo = true)
-
+    showFullInfo = true
+)

@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 
-
 @Composable
 fun ErrorView(errorText: String) = Column(
     horizontalAlignment = Alignment.CenterHorizontally,

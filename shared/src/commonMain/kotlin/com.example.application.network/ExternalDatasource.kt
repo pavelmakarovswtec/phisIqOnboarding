@@ -11,10 +11,12 @@ import kotlinx.serialization.json.Json
 class ExternalDatasource {
     private val httpClient = HttpClient {
         install(ContentNegotiation) {
-            json(Json {
-                ignoreUnknownKeys = true
-                useAlternativeNames = false
-            })
+            json(
+                Json {
+                    ignoreUnknownKeys = true
+                    useAlternativeNames = false
+                }
+            )
         }
     }
 

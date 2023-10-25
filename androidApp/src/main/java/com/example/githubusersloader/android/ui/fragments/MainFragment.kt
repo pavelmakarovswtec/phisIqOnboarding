@@ -17,10 +17,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.example.githubusersloader.android.NavigationRoutes
-import com.example.githubusersloader.android.presentation.MainViewModel
 import com.example.githubusersloader.android.R
 import com.example.githubusersloader.android.Resources
 import com.example.githubusersloader.android.State
+import com.example.githubusersloader.android.presentation.MainViewModel
 import com.example.githubusersloader.android.ui.components.ErrorView
 import com.example.githubusersloader.android.ui.components.UserInfoCard
 import comexampleapplicationdatabase.User
